@@ -59,7 +59,7 @@ To deploy the example code in this repository using the cloud-script CLI, first 
 Then, add a Cloud Script Module at https://telerivet.com/dashboard/a/script_modules :
 
 * Set the Module Namespace to `ext/example-dev`
-* Choose `cloud-script CLI` as the Deployment Mode
+* Choose "cloud-script CLI" as the Deployment Mode
 * Click "Add Module".
 * Follow the instructions on the next page to install the cloud-script CLI and create a cloud-script.yml file.
 
@@ -78,7 +78,7 @@ require('ext/example-dev/main');
 
 Then, whenever an incoming SMS message is received, it will be handled by the code in main.js.
 
-Edit the .js files in a text editor on your computer. When you save changes to any .js files, the `cloud-script` command will automatically synchronize changes with Telerivet's servers. You can test your changes by clicking "Test Services" on the top of the Services page.
+To test making changes to the module, edit the module's .js files in a text editor on your computer. When you save changes to any .js files in the module directory, the `cloud-script` command will automatically synchronize changes with Telerivet's servers. You can test your changes by clicking "Test Services" on the top of the Services page.
 
 ## How Cloud Script Modules Work
 
@@ -92,8 +92,7 @@ To import other modules in the same repository, you can use relative imports. Fo
 However, relative imports are always preferable because they allow you to use different branches
 for development and production code.
 
-For example, you could import the "dev" branch of this repository into Telerivet with the module ID
-`ext/example-dev`. Then the "dev" branch can be tested by adding a Cloud Script API service like this:
+For example, you could import the "dev" branch of this repository into Telerivet with the module namespace `ext/example-dev`. Then the "dev" branch can be tested by adding a Cloud Script API service like this:
 
 ```
 require('ext/example-dev/main');
