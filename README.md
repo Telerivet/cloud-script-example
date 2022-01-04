@@ -38,7 +38,7 @@ Next, add a Cloud Script Module at https://telerivet.com/dashboard/a/script_modu
 To configure Telerivet to automatically pull changes whenever you push new code to the branch, click the "Set up GitHub integration" link in Telerivet and follow the prompts to give Telerivet to access your GitHub account. This authorization is optional when using public repositories. However, if you don't configure the GitHub integration, you would need to click the "update" link on https://telerivet.com/dashboard/a/script_modules each time you want Telerivet to pull code from your repository.
 
 Then, create a Cloud Script API service that is triggered for an incoming message at
-https://telerivet.com/dashboard/services , and add one line of code:
+https://telerivet.com/dashboard/services , and replace the placeholder code with the following code:
 
 ```
 require('ext/example/main');
@@ -70,7 +70,7 @@ Run `cloud-script login` in the terminal window, then follow the instructions to
 Run `cloud-script update -w` in the terminal window. The `-w` option will keep the cloud-script command active to watch for changes to any .js files in the module directory until you stop it by pressing Ctrl+C.
 
 Create a Cloud Script API service that is triggered for an incoming message at
-https://telerivet.com/dashboard/services , and add one line of code:
+https://telerivet.com/dashboard/services , and replace the placeholder code with the following code:
 
 ```
 require('ext/example-dev/main');
@@ -89,14 +89,8 @@ are automatically available as global variables in all modules.
 To import other modules in the same repository, you can use relative imports. For example, if the module has the namespace "ext/example", then from main.js the code
 `require('./commands/hello');` has the same effect as `require('ext/example/commands/hello');`.
 
-However, relative imports are always preferable because they allow you to use different branches
-for development and production code.
-
-For example, you could import the "dev" branch of this repository into Telerivet with the module namespace `ext/example-dev`. Then the "dev" branch can be tested by adding a Cloud Script API service like this:
-
-```
-require('ext/example-dev/main');
-```
+However, relative imports are always preferable because they allow you to use different module namespaces
+for development and production code (e.g. `ext/example` for the master branch of the Git repository, and `ext/example-dev` for the latest development code updated via the cloud-script CLI).
 
 To import your own repository into the Telerivet Cloud Script API,
 go to https://telerivet.com/dashboard/a/script_modules .
